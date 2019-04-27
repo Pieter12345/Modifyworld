@@ -45,6 +45,7 @@ public enum EntityCategory {
 		}
 	}
 	
+	@SafeVarargs
 	private EntityCategory(String name, Class<? extends Entity>... classes) {
 		this.name = name;
 		this.classes = classes;

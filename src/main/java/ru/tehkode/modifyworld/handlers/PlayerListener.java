@@ -257,21 +257,20 @@ public class PlayerListener extends ModifyworldListener {
 		if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK) { //RIGHT_CLICK_AIR is cancelled by default.
 			Material mat = player.getInventory().getItemInMainHand().getType();
 			switch (mat) {
-				case POTION: //Only check splash potions.
-					if ((player.getInventory().getItemInMainHand().getDurability() & 0x4000) != 0x4000) {
-						break;
-					}
+				case SPLASH_POTION:
 				case EGG:
 				case SNOWBALL:
 				case EXPERIENCE_BOTTLE:
 					if (permissionDenied(player, "modifyworld.items.throw", player.getInventory().getItemInMainHand())) {
 						event.setUseItemInHand(Result.DENY);
 						//Denying a potion works fine, but the client needs to be updated because it already reduced the item.
-						if (player.getInventory().getItemInMainHand().getType() == Material.POTION) {
+						if (mat == Material.SPLASH_POTION) {
 							event.getPlayer().updateInventory();
 						}
 					}
 					return; // no need to check further
+				default:
+					break;
 			}
 			
 			if (player.getInventory().getItemInMainHand().getItemMeta() instanceof SpawnEggMeta) {
