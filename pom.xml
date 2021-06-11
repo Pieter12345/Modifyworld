@@ -64,12 +64,17 @@
     </build>
 
     <dependencies>
+        
+        <!-- Spigot API -->
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.14.3-R0.1-SNAPSHOT</version>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.17-R0.1-SNAPSHOT</version>
+            <type>jar</type>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- PermissionsEx -->
         <dependency>
             <groupId>ru.tehkode</groupId>
             <artifactId>PermissionsEx</artifactId>
@@ -81,12 +86,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
+        <!-- Vault API -->
         <dependency>
           <groupId>net.milkbowl.vault</groupId>
           <artifactId>VaultAPI</artifactId>
           <version>1.6</version>
           <scope>provided</scope>
         </dependency>
+        
     </dependencies>
 	  <repositories>
         <repository>
